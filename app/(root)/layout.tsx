@@ -1,11 +1,22 @@
-import React, { ReactNode } from 'react'
+import StreamVideoProvider from "@/providers/StreamClientProvider";
+import React, { ReactNode } from "react";
 
-function RootLayout({children}:{children: ReactNode}) {
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Zoom-Alternative",
+  description: "Video Calling Application",
+  icons: {
+    icon: "/icons/logo.svg",
+  },
+};
+
+function RootLayout({ children }: { children: ReactNode }) {
   return (
     <main>
-        {children}
+      <StreamVideoProvider>{children}</StreamVideoProvider>
     </main>
-  )
+  );
 }
 
-export default RootLayout
+export default RootLayout;
